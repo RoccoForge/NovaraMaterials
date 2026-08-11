@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Archivo:wght@400;500;600&amp;family=Space+Mono:wght@700&amp;display=swap">
+<script src="./ds-base.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#fff; overflow-x:hidden; }
+  * { min-width:0; }
+  img, image-slot { max-width:100%; }
+  a { color:#EF4638; text-decoration:none; }
+  a:hover { color:#C9301F; }
+  .nv-r { position:absolute; width:0; height:0; opacity:0; pointer-events:none; }
+  .nv-cards, .nv-console { display:none; }
+  #nv-v-console:not(:checked) ~ .nv-cards { display:grid; }
+  #nv-v-console:checked ~ .nv-console { display:flex; }
+  .nv-vbtn { font:600 14px 'Archivo',system-ui,sans-serif; padding:9px 16px; border-radius:6px; cursor:pointer; background:transparent; color:#5C5A57; user-select:none; }
+  #nv-v-console:not(:checked) ~ * label[for="nv-v-cards"],
+  #nv-v-console:checked ~ * label[for="nv-v-console"] { background:#1A1A1A; color:#fff; }
+  .nv-tab { display:flex; flex-direction:column; gap:4px; align-items:flex-start; text-align:left; padding:14px 16px; border-radius:8px; cursor:pointer; border:1px solid transparent; background:transparent; color:#CCCCCC; user-select:none; }
+  .nv-panel { display:none; flex-direction:column; flex:3 1 340px; padding:clamp(24px,4vw,36px) clamp(20px,4vw,40px); }
+  #nv-d1:checked ~ * .nv-p1, #nv-d2:checked ~ * .nv-p2, #nv-d3:checked ~ * .nv-p3, #nv-d4:checked ~ * .nv-p4 { display:flex; }
+  #nv-d2:not(:checked) ~ #nv-d3:not(:checked) ~ #nv-d4:not(:checked) ~ * .nv-p1 { display:flex; }
+  #nv-d2:not(:checked) ~ #nv-d3:not(:checked) ~ #nv-d4:not(:checked) ~ * label[for="nv-d1"] { border-color:rgba(239,70,56,0.55); background:rgba(239,70,56,0.16); color:#fff; }
+  #nv-d1:checked ~ * label[for="nv-d1"],
+  #nv-d2:checked ~ * label[for="nv-d2"],
+  #nv-d3:checked ~ * label[for="nv-d3"],
+  #nv-d4:checked ~ * label[for="nv-d4"] { border-color:rgba(239,70,56,0.55); background:rgba(239,70,56,0.16); color:#fff; }
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#EF4638"></rect><text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="34" fill="#fff">NV</text></svg></template>
+</helmet>
+
+<div style="font-family:'Archivo',system-ui,sans-serif;color:#1A1A1A;background:#fff;">
+
+  <nav style="position:sticky;top:0;z-index:50;background:rgba(22,22,21,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.10);">
+    
+  </nav>
+
+  <section style="position:relative;overflow:hidden;background:#161615;color:#fff;">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(110% 100% at 92% -10%, rgba(239,70,56,0.40) 0%, rgba(239,70,56,0.08) 38%, transparent 64%);"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:88px clamp(20px,4vw,40px) 96px;">
+      <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:16px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;">
+      <a href="/" style="display:flex;align-items:center;">
+        <x-import component-from-global-scope="NovaraMaterialsDesignSystem_4f47f9.Logo" tone="light" height="24" hint-size="130px,24px"></x-import>
+      </a>
+      <div style="display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap;">
+        <a href="/#technology" style="color:#CCCCCC;font-size:14px;font-weight:500;">Technology</a>
+        <a href="#inputs" style="color:#CCCCCC;font-size:14px;font-weight:500;">Inputs</a>
+        <a href="#dials" style="color:#CCCCCC;font-size:14px;font-weight:500;">Dials</a>
+        <a href="#alternatives" style="color:#CCCCCC;font-size:14px;font-weight:500;">Alternatives</a>
+        <a href="#constraints" style="color:#CCCCCC;font-size:14px;font-weight:500;">Constraints</a>
+      </div>
+      <a href="/#contact" style="display:inline-flex;white-space:nowrap;">
+        <x-import component-from-global-scope="NovaraMaterialsDesignSystem_4f47f9.Button" variant="inverse" size="sm" hint-size="110px,36px">Contact us</x-import>
+      </a>
+    </div><div style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#F88E78;">The tuning dials</div>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-0.03em;margin:20px 0 0;max-width:20ch;color:#fff;">How we tailor a heater to your application.</h1>
+      <p style="font-size:19px;line-height:1.55;color:#CCCCCC;max-width:56ch;margin:22px 0 0;text-wrap:pretty;">Your application sets two inputs. We turn four independent dials until the heater meets them, then verify the design against four constraints.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,0.22);border-radius:6px;padding:8px 12px;">Geometry</span>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,0.22);border-radius:6px;padding:8px 12px;">Chemistry</span>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,0.22);border-radius:6px;padding:8px 12px;">Electricity</span>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,0.22);border-radius:6px;padding:8px 12px;">Sensing &amp; control</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="inputs" style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(56px,9vw,96px) clamp(20px,4vw,40px) 0;">
+    <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#EF4638;">Inputs we design to</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-0.025em;margin:16px 0 0;max-width:26ch;">Two things about your product decide everything else.</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:44px;">
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Thermal load</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">The thing being heated, and the thermal job to be done.</p>
+        <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Target material: mass, heat capacity, conductivity</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Required temperature, ramp rate and hold tolerance</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Contact quality at the heater-target interface</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Duty profile: continuous, cyclic or on-demand</li>
+        </ul>
+        <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+          <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">The energy the heater must deliver, and where — the spec every dial is turned against.</p>
+        </div>
+      </div>
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Environment</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">The conditions the heater lives in — and loses heat to.</p>
+        <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Ambient temperature range and extremes</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Airflow and convective losses</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Insulation, mounting and surrounding structure</li>
+          <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Moisture, altitude, vibration, chemical exposure</li>
+        </ul>
+        <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+          <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">The loss budget and derating — the same heater behaves differently in still air and a 60-mph slipstream.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dials" style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(52px,8vw,88px) clamp(20px,4vw,40px) 0;">
+    <input type="radio" name="nv-view" id="nv-v-cards" class="nv-r" />
+    <input type="radio" name="nv-view" id="nv-v-console" class="nv-r" />
+    <input type="radio" name="nv-dial" id="nv-d1" class="nv-r" />
+    <input type="radio" name="nv-dial" id="nv-d2" class="nv-r" />
+    <input type="radio" name="nv-dial" id="nv-d3" class="nv-r" />
+    <input type="radio" name="nv-dial" id="nv-d4" class="nv-r" />
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#EF4638;">Dials we turn</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-0.025em;margin:16px 0 0;max-width:24ch;">Four design vectors, independently adjustable.</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #E4E2DF;border-radius:8px;padding:4px;">
+        <label for="nv-v-cards" class="nv-vbtn">Dial cards</label>
+        <label for="nv-v-console" class="nv-vbtn">Spec console</label>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#989898;margin:14px 0 0;">Two structural directions — same content.</p>
+
+    <div class="nv-cards" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px;">
+        <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;background:#fff;">
+          <div style="display:flex;align-items:baseline;gap:12px;">
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:#EF4638;letter-spacing:0.1em;">01</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Geometry</h3>
+          </div>
+          <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">The layout of the bus bars and the size and shape of the heater.</p>
+          <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Bus bar placement, spacing and cross-section</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Heater footprint, aspect ratio and cutouts</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Zoned or patterned coatings for differential watt density</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Lead exit and termination locations</li>
+          </ul>
+          <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+            <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Watt-density distribution, the resistance window at a given sheet resistance, and thermal uniformity across the part.</p>
+          </div>
+        </div>
+        <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;background:#fff;">
+          <div style="display:flex;align-items:baseline;gap:12px;">
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:#EF4638;letter-spacing:0.1em;">02</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Chemistry</h3>
+          </div>
+          <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">The formulation — the film we lay down and how it bonds to the stack.</p>
+          <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">CNT loading in the dispersion (sheet resistance)</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Binders and matrix components</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Adhesives and substrate interface</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Coating thickness and layer count</li>
+          </ul>
+          <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+            <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Base resistance, maximum operating temperature, flexibility, adhesion and long-term stability.</p>
+          </div>
+        </div>
+        <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;background:#fff;">
+          <div style="display:flex;align-items:baseline;gap:12px;">
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:#EF4638;letter-spacing:0.1em;">03</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Electricity</h3>
+          </div>
+          <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">How power reaches the film.</p>
+          <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">AC vs. DC drive</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Supply voltage and available current</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">PWM duty cycle and switching strategy</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Drive electronics and connector scheme</li>
+          </ul>
+          <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+            <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Heat-up rate, steady-state power, efficiency, and compatibility with the host system’s power budget.</p>
+          </div>
+        </div>
+        <div style="border:1px solid #E4E2DF;border-radius:10px;padding:28px;background:#fff;">
+          <div style="display:flex;align-items:baseline;gap:12px;">
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:#EF4638;letter-spacing:0.1em;">04</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(21px,2.6vw,24px);letter-spacing:-0.015em;margin:0;">Sensing &amp; control</h3>
+          </div>
+          <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">How the system knows the temperature — and holds it.</p>
+          <ul style="margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Thermistors, RTDs or thermocouples in the stack</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Open-loop vs. closed-loop control logic</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Film TCR and self-regulating behavior</li>
+            <li style="font-size:15px;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Over-temperature cutoffs and fail-safes</li>
+          </ul>
+          <div style="margin-top:22px;padding-top:16px;border-top:2px solid #1A1A1A;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+            <p style="font-size:15px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Accuracy, repeatability, response to disturbances, and the safety case.</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="nv-console" style="margin-top:40px;border:1px solid #E4E2DF;border-radius:10px;overflow:hidden;flex-wrap:wrap;min-height:460px;">
+      <div style="background:#161615;padding:20px;display:flex;flex-direction:column;gap:8px;flex:1 1 260px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#989898;padding:6px 10px 12px;">Select a dial</div>
+          <label for="nv-d1" class="nv-tab">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0.65;">01</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;">Geometry</span>
+          </label>
+          <label for="nv-d2" class="nv-tab">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0.65;">02</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;">Chemistry</span>
+          </label>
+          <label for="nv-d3" class="nv-tab">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0.65;">03</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;">Electricity</span>
+          </label>
+          <label for="nv-d4" class="nv-tab">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0.65;">04</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;">Sensing &amp; control</span>
+          </label>
+        <div style="margin-top:auto;padding:16px 10px 4px;border-top:1px solid rgba(255,255,255,0.12);">
+          <p style="font-size:13px;line-height:1.55;color:#989898;margin:0;">The application sets the inputs. We turn the dials until the heater meets them.</p>
+        </div>
+      </div>
+        <div class="nv-panel nv-p1">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EF4638;">Dial 01</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-0.025em;margin:12px 0 0;">Geometry</h3>
+          <p style="font-size:17px;line-height:1.6;color:#5C5A57;margin:12px 0 0;max-width:52ch;">The layout of the bus bars and the size and shape of the heater.</p>
+          <ul style="margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px;">
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Bus bar placement, spacing and cross-section</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Heater footprint, aspect ratio and cutouts</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Zoned or patterned coatings for differential watt density</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Lead exit and termination locations</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:28px;">
+            <div style="background:#F7F6F4;border-left:2px solid #EF4638;border-radius:0 8px 8px 0;padding:18px 22px;">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+              <p style="font-size:16px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Watt-density distribution, the resistance window at a given sheet resistance, and thermal uniformity across the part.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nv-panel nv-p2">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EF4638;">Dial 02</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-0.025em;margin:12px 0 0;">Chemistry</h3>
+          <p style="font-size:17px;line-height:1.6;color:#5C5A57;margin:12px 0 0;max-width:52ch;">The formulation — the film we lay down and how it bonds to the stack.</p>
+          <ul style="margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px;">
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">CNT loading in the dispersion (sheet resistance)</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Binders and matrix components</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Adhesives and substrate interface</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Coating thickness and layer count</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:28px;">
+            <div style="background:#F7F6F4;border-left:2px solid #EF4638;border-radius:0 8px 8px 0;padding:18px 22px;">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+              <p style="font-size:16px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Base resistance, maximum operating temperature, flexibility, adhesion and long-term stability.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nv-panel nv-p3">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EF4638;">Dial 03</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-0.025em;margin:12px 0 0;">Electricity</h3>
+          <p style="font-size:17px;line-height:1.6;color:#5C5A57;margin:12px 0 0;max-width:52ch;">How power reaches the film.</p>
+          <ul style="margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px;">
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">AC vs. DC drive</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Supply voltage and available current</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">PWM duty cycle and switching strategy</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Drive electronics and connector scheme</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:28px;">
+            <div style="background:#F7F6F4;border-left:2px solid #EF4638;border-radius:0 8px 8px 0;padding:18px 22px;">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+              <p style="font-size:16px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Heat-up rate, steady-state power, efficiency, and compatibility with the host system’s power budget.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nv-panel nv-p4">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EF4638;">Dial 04</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,34px);letter-spacing:-0.025em;margin:12px 0 0;">Sensing &amp; control</h3>
+          <p style="font-size:17px;line-height:1.6;color:#5C5A57;margin:12px 0 0;max-width:52ch;">How the system knows the temperature — and holds it.</p>
+          <ul style="margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px;">
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Thermistors, RTDs or thermocouples in the stack</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Open-loop vs. closed-loop control logic</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Film TCR and self-regulating behavior</li>
+            <li style="font-size:15px;line-height:1.5;color:#1A1A1A;padding:14px 0;border-top:1px solid #EDEBE8;">Over-temperature cutoffs and fail-safes</li>
+          </ul>
+          <div style="margin-top:auto;padding-top:28px;">
+            <div style="background:#F7F6F4;border-left:2px solid #EF4638;border-radius:0 8px 8px 0;padding:18px 22px;">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#989898;">What it sets</span>
+              <p style="font-size:16px;line-height:1.55;color:#1A1A1A;margin:8px 0 0;">Accuracy, repeatability, response to disturbances, and the safety case.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(52px,8vw,88px) clamp(20px,4vw,40px) 0;">
+    <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#EF4638;">Couplings</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-0.025em;margin:16px 0 0;max-width:26ch;">Turn one dial and others move. Here's how we manage it.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;margin-top:40px;border-top:1px solid #E4E2DF;">
+      <div style="padding:24px 28px 24px 0;border-right:1px solid #E4E2DF;">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#EF4638;">Chemistry → geometry + electricity</div>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Change CNT loading and sheet resistance moves — the bus bar math and required drive voltage move with it.</p>
+      </div>
+      <div style="padding:24px 28px;border-right:1px solid #E4E2DF;">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#EF4638;">Geometry → electricity</div>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">A larger heated area at the same sheet resistance lowers total resistance and raises current draw on the supply.</p>
+      </div>
+      <div style="padding:24px 28px;border-right:1px solid #E4E2DF;">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#EF4638;">Environment → geometry + chemistry</div>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Higher convective losses demand more watt density, which requires a more aggressive thermal response.</p>
+      </div>
+      <div style="padding:24px 0 24px 28px;">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#EF4638;">Thermal load → sensing</div>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Tight hold tolerances can't be met open-loop — the spec itself decides whether feedback is required.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="alternatives" style="margin-top:88px;background:#F7F6F4;border-top:1px solid #E4E2DF;border-bottom:1px solid #E4E2DF;">
+    <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(52px,8vw,88px) clamp(20px,4vw,40px);">
+      <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#EF4638;">The alternatives</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-0.025em;margin:16px 0 0;max-width:26ch;">Legacy heaters give you one dial — maybe two.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#5C5A57;max-width:62ch;margin:18px 0 0;text-wrap:pretty;">Conventional technologies fix the material up front, leaving geometry as almost the only thing you can change. Uniformity, maximum temperature, flexibility and resistance then move together — one lever drags the rest.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;">
+        <div style="background:#fff;border:1px solid #D9D6D2;border-radius:10px;padding:26px;">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;margin:0;letter-spacing:-0.01em;">Nichrome wire</h3>
+          <p style="font-size:14px;color:#989898;margin:6px 0 0;">A resistance wire routed across a surface.</p>
+          <ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Heat concentrates along the wire — hot lines, cold gaps between runs</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Bulky and rigid; fatigues and breaks under bending or vibration</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">One break opens the entire circuit</li>
+          </ul>
+          <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5C5A57;">Dials you get: geometry only</div>
+        </div>
+        <div style="background:#fff;border:1px solid #D9D6D2;border-radius:10px;padding:26px;">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;margin:0;letter-spacing:-0.01em;">Etched copper foil</h3>
+          <p style="font-size:14px;color:#989898;margin:6px 0 0;">A copper trace photo-etched onto polyimide film.</p>
+          <ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">High temperature coefficient — resistance climbs with heat, inviting hot-spot runaway</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Heat follows the serpentine trace; gaps between runs stay cold</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Resistance boxed in by fixed foil thickness; traces crack under flex</li>
+          </ul>
+          <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5C5A57;">Dials you get: geometry + a fixed metal</div>
+        </div>
+        <div style="background:#fff;border:1px solid #D9D6D2;border-radius:10px;padding:26px;">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;margin:0;letter-spacing:-0.01em;">Silver paste</h3>
+          <p style="font-size:14px;color:#989898;margin:6px 0 0;">Conductive silver ink screen-printed into a pattern.</p>
+          <ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Silver migrates under bias and humidity — dendrites, shorts, drift</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Narrow sheet-resistance window; high resistance is hard to reach</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid #EDEBE8;">Cost scales with silver-heavy coverage; prints crack under flex</li>
+          </ul>
+          <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5C5A57;">Dials you get: print pattern + thickness</div>
+        </div>
+        <div style="background:#EF4638;border:1px solid #D93D2E;border-radius:10px;padding:26px;color:#1A1A1A;">
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:21px;margin:0;letter-spacing:-0.01em;color:#1A1A1A;">Novara CNT film</h3>
+          <p style="font-size:14px;color:#33100A;margin:6px 0 0;">The film itself is the heater.</p>
+          <ul style="margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid rgba(26,26,26,0.22);">Uniform heat across the whole surface — no traces to trace</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid rgba(26,26,26,0.22);">Flexible and damage-tolerant; a local defect doesn't open the circuit</li>
+            <li style="font-size:14px;line-height:1.55;color:#1A1A1A;padding-top:10px;border-top:1px solid rgba(26,26,26,0.22);">Sheet resistance is formulated, not inherited from a metal</li>
+          </ul>
+          <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2B2927;">Dials you get: all four, independently</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="constraints" style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(52px,8vw,88px) clamp(20px,4vw,40px);">
+    <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#EF4638;">Constraints</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-0.025em;margin:16px 0 0;max-width:26ch;">Every design is checked against four constraints.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:40px;">
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:24px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;margin:0;letter-spacing:-0.01em;">Integration &amp; packaging</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Stack-up, encapsulation, bend radius, attachment to the host assembly.</p>
+      </div>
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:24px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;margin:0;letter-spacing:-0.01em;">Manufacturability</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Coating process window, sheet-resistance uniformity, yield at volume.</p>
+      </div>
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:24px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;margin:0;letter-spacing:-0.01em;">Reliability &amp; lifetime</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Thermal cycling, aging, environmental durability over the service life.</p>
+      </div>
+      <div style="border:1px solid #E4E2DF;border-radius:10px;padding:24px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;margin:0;letter-spacing:-0.01em;">Safety &amp; regulatory</h3>
+        <p style="font-size:15px;line-height:1.6;color:#5C5A57;margin:10px 0 0;">Touch-temperature limits, certifications, failure-mode behavior.</p>
+      </div>
+    </div>
+    <p style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;line-height:1.4;letter-spacing:-0.015em;margin:44px 0 0;max-width:46ch;">Set the two inputs. Turn the four dials. Verify against the constraints. That's how a Novara heater is tailored.</p>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:#161615;color:#fff;">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(90% 130% at 10% 115%, rgba(239,70,56,0.40) 0%, rgba(239,70,56,0.08) 40%, transparent 66%);"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;box-sizing:border-box;padding:clamp(52px,8vw,88px) clamp(20px,4vw,40px);">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);line-height:1.08;letter-spacing:-0.03em;margin:0;max-width:22ch;color:#fff;">Send us the application. We'll send back a design.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#CCCCCC;margin:18px 0 0;max-width:50ch;">Target temperature, environment, power available, volume. That's enough for our engineers to start turning dials.</p>
+      <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;">
+        <a href="/#contact" style="display:inline-flex;white-space:nowrap;"><x-import component-from-global-scope="NovaraMaterialsDesignSystem_4f47f9.Button" size="lg" hint-size="150px,50px">Contact us</x-import></a>
+        <a href="/#applications" style="display:inline-flex;white-space:nowrap;"><x-import component-from-global-scope="NovaraMaterialsDesignSystem_4f47f9.Button" variant="inverse" size="lg" hint-size="170px,50px">See applications</x-import></a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#0F0F0E;color:#989898;">
+    <div style="max-width:1200px;margin:0 auto;box-sizing:border-box;padding:48px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;flex-wrap:wrap;">
+      <x-import component-from-global-scope="NovaraMaterialsDesignSystem_4f47f9.Logo" tone="light" height="24" hint-size="130px,24px"></x-import>
+      <div style="font-size:13px;color:#5C5A57;">© 2026 Novara Materials · Columbus, Ohio · HeatCoat™ is a trademark of Battelle Memorial Institute.</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

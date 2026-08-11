@@ -1,0 +1,93 @@
+/* ============================================================
+   NOVARA MATERIALS — COLOR TOKENS
+   Source of truth: brand sheet (NOVARA LOGO AND COLORS.pdf)
+   Brand red  PMS 179C  #EF4638
+   Black      #000000
+   Gray       #989898  /  #CCCCCC
+   ============================================================ */
+:root {
+  /* --- Brand red / "ember" ramp (anchored on #EF4638) --- */
+  --ember-50:  #FFF1EE;
+  --ember-100: #FFDED7;
+  --ember-200: #FCB6A8;
+  --ember-300: #F88974;
+  --ember-400: #F15A41;
+  --ember-500: #EF4638; /* BRAND RED — PMS 179C */
+  --ember-600: #C32A1C;
+  --ember-700: #9E2016;
+  --ember-800: #7A1911;
+  --ember-900: #5A120C;
+
+  /* --- Neutral / "carbon" ramp (anchored on brand grays + black) --- */
+  --carbon-0:   #FFFFFF;
+  --carbon-50:  #F7F7F6;
+  --carbon-100: #ECECEA;
+  --carbon-200: #DCDCDA;
+  --carbon-300: #CCCCCC; /* BRAND GRAY light */
+  --carbon-400: #B0B0AF;
+  --carbon-500: #989898; /* BRAND GRAY mid */
+  --carbon-600: #6E6E6D;
+  --carbon-700: #4A4A49;
+  --carbon-800: #2A2A29;
+  --carbon-900: #161615;
+  --carbon-950: #0B0B0A;
+  --carbon-1000:#000000; /* BRAND BLACK */
+
+  /* --- Semantic status (matched to the Series A deck's data-viz palette) --- */
+  --green-500:  #3DBE7A;
+  --green-50:   #E7F6EE;
+  --amber-500:  #F5A623;
+  --amber-50:   #FDF0D8;
+  --azure-500:  #4A90D9;
+  --azure-50:   #E8F1FB;
+  --red-danger: #C4271A; /* danger uses deepened brand red */
+  --red-50:     #FBE9E6;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in product code
+     ============================================================ */
+
+  /* Brand */
+  --brand:            var(--ember-500);
+  --brand-hover:      var(--ember-600);
+  --brand-active:     var(--ember-700);
+  --brand-subtle:     var(--ember-50);
+  --brand-on:         var(--carbon-0);   /* text/icon on brand fill */
+
+  /* Surfaces / backgrounds */
+  --surface-page:     var(--carbon-0);
+  --surface-sunken:   var(--carbon-50);
+  --surface-card:     var(--carbon-0);
+  --surface-inset:    var(--carbon-100);
+  --surface-inverse:  var(--carbon-1000);
+  --surface-overlay:  rgba(11, 11, 10, 0.55);
+
+  /* Text */
+  --text-primary:     var(--carbon-1000);
+  --text-secondary:   var(--carbon-700);
+  --text-muted:       var(--carbon-500);
+  --text-disabled:    var(--carbon-400);
+  --text-on-inverse:  var(--carbon-0);
+  --text-on-inverse-muted: var(--carbon-400);
+  --text-brand:       var(--ember-600);
+
+  /* Borders / lines */
+  --border-subtle:    var(--carbon-200);
+  --border-default:   var(--carbon-300);
+  --border-strong:    var(--carbon-500);
+  --border-inverse:   rgba(255,255,255,0.16);
+  --border-focus:     var(--ember-500);
+
+  /* Status semantics */
+  --success:          var(--green-500);
+  --success-subtle:   var(--green-50);
+  --warning:          var(--amber-500);
+  --warning-subtle:   var(--amber-50);
+  --info:             var(--azure-500);
+  --info-subtle:      var(--azure-50);
+  --danger:           var(--red-danger);
+  --danger-subtle:    var(--red-50);
+
+  /* Focus ring */
+  --ring: 0 0 0 3px rgba(239, 70, 56, 0.32);
+}
